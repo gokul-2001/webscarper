@@ -31,7 +31,7 @@ for page_num in range(1, page_num_MAX):
          amenities_list.append(amenity.find("span", {"d-body-sm"}).text.strip())
      hotel_dict["amenities"]=' , '.join(amenities_list[:-1])
      scraped_info_list.append(hotel_dict)
-     connect.insert_into_table(args.dbname,tuple(hotel_dict.values())
+     connect.insert_into_table(args.dbname,tuple(hotel_dict.values()))
 dataFrame = pandas.DataFrame(scraped_info_list)
 dataFrame.to_csv("Oyo.csv")
 connect.get_hotel_info(args.dbname)
